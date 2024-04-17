@@ -56,7 +56,7 @@ class Projectile(pygame.sprite.Sprite):
 
         self.pos = pygame.math.Vector2(self.rect.topleft)
         self.direction = pygame.math.Vector2(random.choice([-1, 1]), random.choice([-1, 1]))
-        self.speed = 400
+        self.speed = 300
         self.obstacles = obstacles
 
     def collision(self, direction):
@@ -161,6 +161,7 @@ def game_over(side):
 pygame.init()
 wsize = (720, 480)
 screen = pygame.display.set_mode(wsize)
+pygame.display.set_caption("Ping Pong")
 pygame.mouse.set_visible(False)
 
 all_sprites = pygame.sprite.Group()
@@ -182,7 +183,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.K_ESCAPE:
+        elif event.type == pygame.K_ESCAPE:
             pygame.quit()
             sys.exit()
     
